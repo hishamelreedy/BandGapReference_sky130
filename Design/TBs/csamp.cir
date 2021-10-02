@@ -1,0 +1,44 @@
+5T OTA
+
+* Include external file that contains MOSFET Model
+.lib ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130.lib.spice" tt
+** Circuit Description **
+
+* power supply
+VDD 7 0 DC 1.8
+* input
+
+* Add lines here to add the input (voltage)sources
+Vgc 1 0 0.6 AC 1
+
+* circuit
+* 5T OTA
+.PARAM x=1
+X5 7 1 0 0 sky130_fd_pr__nfet_01v8_lvt L=0.35 W=1 nf={x}
+*CL 6 0 1p
+
+* Current Mirror
+*X6 1 1 0 0 sky130_fd_pr__nfet_01v8_lvt L=0.35 W=1 nf=1
+*Iref 7 1 75.4u
+
+
+** Analysis Requests **
+.op
+** Outputs Requests **
+.control
+let start_x = 1
+let stop_x = 10
+let delta_x = 1
+let r_act = start_r
+* loop
+while r_act le stop_r
+alter r1 r_act
+run
+write dc - sweep . out v (2)
+set appendwrite
+let r_act = r_act + delta_r
+end
+plot dc1 . v (2)
+.endc
+
+.END

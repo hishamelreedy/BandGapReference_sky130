@@ -1,0 +1,24 @@
+* Transistor Vth and I-V characteristic
+.option scale=1E-6
+simulator lang=spice
+* Include SkyWater sky130 device models
+.lib "./skywater-pdk/libraries/sky130_fd_pr/latest/models/sky130.lib.spice" tt
+
+* Gate bias
+.PARAM Lx = 0.35
+X1 4 1 0 0 sky130_fd_pr__nfet_01v8_lvt W=1.0 L={Lx} M=1 mult=1
+
+* DC source for current measure
+Vid 5 4 DC 0V
+Vgb 1 0 DC 0V
+Vdd 5 0 DC 1.8V
+
+* Sweep Vds from 0 to 1.8V
+dc Vdd 0 1.8 0.01 Vgb 0 1.8 0.01
+*wrdata newiv.data Vid#branch V(1)
+
+* DC Sweep on Parametric
+DC PARAM Lx 0.35 2 0.1
+plot Vid#branch vs Lx
+
+.end

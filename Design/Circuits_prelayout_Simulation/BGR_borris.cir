@@ -1,0 +1,37 @@
+BGR
+.include "ee214b_ltspice.sp"
+
+.params VDD = 1.3
+.params L = 250n
+.params S1 = 20
+.params S2 = 20
+.params S3 = 20
+.params S4 = 1
+.params S5 = 2
+.params S6 = 1
+.params S7 = 2
+.params S8 = 1
+.params S9 = 4
+.params S10 = 1
+.params S11 = 1
+.params S12 = 40
+
+M1 net16 net16 0 0 nch w={{S1}*{L}} l={L} ad={0.64u*{S1}*{L}} as={0.64u*{S1}*{L}} pd={2*(0.64u+{S1}*{L})} ps={2*(0.64u+{S1}*{L})}
+M2 net3 net03 net16 0 nch w={{S2}*{L}} l={L} ad={0.64u*{S2}*{L}} as={0.64u*{S2}*{L}} pd={2*(0.64u+{S2}*{L})} ps={2*(0.64u+{S2}*{L})}
+M3 net2 net03 net3 0 nch w={{S3}*{L}} l={L} ad={0.64u*{S3}*{L}} as={0.64u*{S3}*{L}} pd={2*(0.64u+{S3}*{L})} ps={2*(0.64u+{S3}*{L})}
+M4 net7 net19 net3 0 nch w={{S4}*{L}} l={L} ad={0.64u*{S4}*{L}} as={0.64u*{S4}*{L}} pd={2*(0.64u+{S4}*{L})} ps={2*(0.64u+{S4}*{L})}
+M5 net19 net19 net7 0 nch w={{S5}*{L}} l={L} ad={0.64u*{S5}*{L}} as={0.64u*{S5}*{L}} pd={2*(0.64u+{S5}*{L})} ps={2*(0.64u+{S5}*{L})}
+M6 net9 net13 net7 0 nch w={{S6}*{L}} l={L} ad={0.64u*{S6}*{L}} as={0.64u*{S6}*{L}} pd={2*(0.64u+{S6}*{L})} ps={2*(0.64u+{S6}*{L})}
+M7 net13 net13 net9 0 nch w={{S7}*{L}} l={L} ad={0.64u*{S7}*{L}} as={0.64u*{S7}*{L}} pd={2*(0.64u+{S7}*{L})} ps={2*(0.64u+{S7}*{L})}
+M8 net2 net2 vdd vdd pch w={{S8}*{L}} l={L} ad={0.64u*{S8}*{L}} as={0.64u*{S8}*{L}} pd={2*(0.64u+{S8}*{L})} ps={2*(0.64u+{S8}*{L})}
+M9 net03 net2 vdd vdd pch w={{S9}*{L}} l={L} ad={0.64u*{S9}*{L}} as={0.64u*{S9}*{L}} pd={2*(0.64u+{S9}*{L})} ps={2*(0.64u+{S9}*{L})}
+M10 net19 net2 vdd vdd pch w={{S10}*{L}} l={L} ad={0.64u*{S10}*{L}} as={0.64u*{S10}*{L}} pd={2*(0.64u+{S10}*{L})} ps={2*(0.64u+{S10}*{L})}
+M11 net13 net2 vdd vdd pch w={{S11}*{L}} l={L} ad={0.64u*{S11}*{L}} as={0.64u*{S11}*{L}} pd={2*(0.64u+{S11}*{L})} ps={2*(0.64u+{S11}*{L})}
+M12 net9 net2 vdd vdd pch w={{S12}*{L}} l={L} ad={0.64u*{S12}*{L}} as={0.64u*{S12}*{L}} pd={2*(0.64u+{S12}*{L})} ps={2*(0.64u+{S12}*{L})}
+Q0 0 0 net03 0 pnpideal area=4u m=1
+C0 net9 0 1p
+V1 vdd 0 dc={VDD}
+.op
+.step temp -10 125 1
+.step V1 1.3 2.2 0.1
+.probe V(net9) V(net03)

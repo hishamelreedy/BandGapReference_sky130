@@ -1,0 +1,58 @@
+* Transistor Vth and I-V characteristic
+.option scale=1E-6
+
+* Include SkyWater sky130 device models
+.lib ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130.lib.spice" tt
+.include ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130_fd_pr__model__pnp.model.spice"
+
+* Gate bias
+.PARAM Lx = 0.35
+X0 0 1 4 4 sky130_fd_pr__pnp_05v5_W3p40L3p40 M=120
+
+* DC source for current measure
+Vid 5 4 DC 0V
+Vgb 5 1 DC 1.8V
+Vdd 5 0 DC 1.8V
+
+.control
+* Sweep Vds from 0 to 1.8V
+*dc Vdd 0 1.8 0.01 Vgb 0 1.8 0.01
+*wrdata newiv.data Vid#branch V(1)
+
+* DC Sweep on Parametric
+op
+show
+
+*DC PARAM Lx 0.35 2 0.1
+*plot Vid#branch vs Lx
+
+* DC Sweep Vgs from 0 to 1.8V
+*step Lx 0.35 2 10
+*dc Vgb 0 1.8 0.01
+dc Vgb 0 1.8 0.01 Vdd 0 1.8 0.2
+plot Vid#branch vs V(5)-V(1)
+
+# Find threshold
+*let ih=Vid#branch[98]
+*let il=Vid#branch[85]
+*let vh=V(2)[98]
+*let vl=V(2)[85]
+*let vth=((vl - vh) / (ih - il)) * ih + vh
+*echo threshold voltage
+*print vth
+
+* Parametric Sweep
+*let nmoswidth = 0.35
+*alter X1 w = nmoswidth
+*let ix = 0
+*dowhile ix < 5
+*  dc Vgb 0 1.8 0.01
+*  let nmoswidth = nmoswidth + 0.1
+*  alter @m.x1.msky130_fd_pr__nfet_01v8_lvt[w] = nmoswidth
+*  let ix = ix + 1
+*end  
+*plot dc1.Vid#branch dc2.Vid#branch dc3.Vid#branch dc4.Vid#branch  xlabel "gate voltage [V]" ylabel "drain current [A]"  title "Inverter gain as a function of NMOS width"
+*   quit
+*quit
+.endc
+.end

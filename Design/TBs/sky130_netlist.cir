@@ -1,0 +1,32 @@
+***simulator lang =LTspice
+
+.options savecurrents
+.lib ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130.lib.spice" tt
+.include ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130_fd_pr__model__pnp.model.spice"
+
+
+.params L_N = L
+.params W_N = W
+.params LP = L
+.params WP = W
+.params FN = F
+.params FP = F
+.params MN = M
+.params MP = M
+.params L = 1.8e-07
+.params W = 1e-05
+.params F = 1
+.params M = 1
+
+*M0 vx vg 0 0 nch w={W_N} l={L_N} as={0.64e-6*{W_N}} ad={0.64e-6*{W_N}} ps={2*(0.64e-6+{W_N})} pd={2*(0.64e-6+{W_N})}
+XM1 vd vg 0 0 sky130_fd_pr__nfet_01v8_lvt W = 1 L = 0.18
+vtest vg 0 1.8
+vtest2 vd 0 1.8
+.op
+
+.control
+run
+show > mosop.txt
+quit
+.endc
+.end

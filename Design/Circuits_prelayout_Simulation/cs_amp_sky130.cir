@@ -1,0 +1,33 @@
+Common Source Amplifier
+***libraries***
+**Sky-130 Model**
+.include "../skywater-pdk/libraries/sky130_fd_pr/latest/cells/nfet_01v8/sky130_fd_pr__nfet_01v8__tt.pm3.spice"
+*** NETLIST Description ***
+.param Lx=180n
+.param Wx=30u
+.param Sx=1
+.param nfx=1
+XM1 vdd in GND GND sky130_fd_pr__nfet_01v8 L={Lx} W={{Sx}*{Lx}} nf={nfx}
++ ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+
+VDS vdd 0 dc 1.8
+VGS in 0 dc 0.729
+*** Analyses ***
+*AC analysis for 1 Hz to 1MHz, 10 points per decade
+*.ac dec 10 1 1Meg
+.op
+*.step param Lx 180n 1u 100n
+*.dc VGS 0 1.8 0.1
+.dc param Sx 3 29 1
+.step param Lx 350n 1u 100n
+*** Control NGSPICE ***
+*.control
+*run
+*show > mosop.txt
+*plot v(vx)
+*plot vdb(in) xlog
+*quit
+*.endc
+.probe d(Ix(m1:D))
+.end

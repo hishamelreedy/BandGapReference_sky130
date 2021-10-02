@@ -1,0 +1,22 @@
+* Transistor Vth and I-V characteristic
+.option scale=1E-6
+
+* Include SkyWater sky130 device models
+.lib ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130.lib.spice" tt
+
+* Gate bias
+.PARAM Lx = 0.35
+X1 3 1 4 5 sky130_fd_pr__pfet_01v8_lvt W=1.0 L={Lx} M=1
+
+* DC source for current measure
+Vid 3 0 DC 0V
+Vsg 5 1 DC 0V
+Vsd 5 0 DC 1.8V
+Vsb 5 4 DC 1.0V
+.op
+.control
+run
+show>pmosspec.txt
+quit
+.endc
+.end

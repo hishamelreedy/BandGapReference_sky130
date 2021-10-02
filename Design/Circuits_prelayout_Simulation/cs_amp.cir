@@ -1,0 +1,18 @@
+Common Source Amplifier
+***libraries***
+**Sky-130 Model**
+.include "ee214b_ltspice.sp"
+*** NETLIST Description ***
+.param Lx=1u
+.param Wx=1u
+.param Sx=1
+M1 vdd in GND GND nch l={Lx} w={Wx}
+*C1 vx 0 1p
+VDS vdd 0 dc 1.8
+VGS in 0 dc 1.8
+*** Analyses ***
+.op
+.dc param Wx 2u 10u 1u
+*.step param Lx 350n 2u 100n
+*.step param Lx List 280n 10u
+.end

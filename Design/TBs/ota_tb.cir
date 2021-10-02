@@ -1,0 +1,45 @@
+5T OTA
+
+* Include external file that contains MOSFET Model
+.lib ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130.lib.spice" tt
+** Circuit Description **
+
+* power supply
+VDD 7 0 DC 1.8
+* input
+
+* Add lines here to add the input (voltage)sources
+VDC mid 0 DC 1.03V
+Vpl 4 mid DC 0 AC 0.5V
+Vmin 3 mid DC 0 AC -0.5V
+* circuit
+* 5T OTA
+X1 6 4 2 0 sky130_fd_pr__nfet_01v8_lvt L=0.35 W=8.64
+X2 5 3 2 0 sky130_fd_pr__nfet_01v8_lvt L=0.35 W=8.64
+X3 6 5 7 7 sky130_fd_pr__pfet_01v8_lvt L=0.9 W=57.1
+X4 5 5 7 7 sky130_fd_pr__pfet_01v8_lvt L=0.9 W=57.1
+X5 2 1 0 0 sky130_fd_pr__nfet_01v8_lvt L=1 W=52.21
+CL 6 0 1p
+
+* Current Mirror
+*X6 1 1 0 0 sky130_fd_pr__nfet_01v8_lvt L=1 W=52.21
+*Iref 7 1 75.4u
+Vgc 1 0 0.5818
+
+** Analysis Requests **
+.op
+.ac dec 10 1 10e9
+
+** Outputs Requests **
+*.PROBE V(6)
+.control
+run
+show > opota.txt
+ac dec 10 1 10e9
+*Magnitude dB plot for v(6) on log scale
+plot vdb(6) xlog
+*Phase degrees plot for v(6) on log scale
+plot {57.29*vp(6)} xlog
+.endc
+
+.END
