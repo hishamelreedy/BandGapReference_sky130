@@ -47,8 +47,8 @@ V1 vdd 0 dc={VDD} AC=1
 *plot V(net9) vs V(vdd)
 
 * Temp & VDD Sweep
-*dc temp -40 125 5 V1 1.3 2.2 0.1
-*plot V(net9)
+dc temp -40 125 5 V1 1.3 2.2 0.1
+plot V(net9)
 
 * AC PSRR
 *AC dec 10 1 1MEG
@@ -56,8 +56,8 @@ V1 vdd 0 dc={VDD} AC=1
 *.probe V(net9) V(net03)
 
 * TC Simulation
-dc temp -40 125 5
-plot deriv(v(net9))/1.8
+*dc temp -40 125 5
+*plot deriv(v(net9))/1.8
 
 * VC Simulation
 *dc V1 1.3 2.2 0.1
