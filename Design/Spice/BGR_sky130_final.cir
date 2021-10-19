@@ -1,0 +1,114 @@
+BGR
+
+* Include external file that contains MOSFET Model
+.lib ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130.lib.spice" tt
+.include ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130_fd_pr__model__pnp.model.spice"
+*.include "ee214b_ltspice.sp"
+** Circuit Description **
+.param VDD = 1.8
+.param L = 1
+.options temp = 27
+*** 1st Branch: Controls amount of current in Bjt
+.param S9 = 15
+
+*** 2nd Branch:Controls Initial Offset
+.param S8 = 1
+.param S3 = 32
+.param S2 = 32
+.param S1 = 32
+
+*** 3rd, 4th, 5th Branches: Fine Tuning slope for PTAT slope
+.param S10 = 1
+.param S5 = 4
+.param S4 = 1
+
+.param S11 = 1
+.param S7 = 4
+.param S6 = 1
+
+
+.param S13 = 1
+.param S14 = 4
+.param S15 = 1
+
+.param S16 = 1
+.param S17 = 4
+.param S18 = 1
+
+*** Branch 6: Coarse Tuning for PTAT Slope
+.param S12 = 1
+
+***  Circuit Diagram
+X1 net16 net16 0 0 sky130_fd_pr__nfet_01v8_lvt w={S1*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+X2 net3 net03 net16 0 sky130_fd_pr__nfet_01v8_lvt w={S2*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+X3 net2 net03 net3 0 sky130_fd_pr__nfet_01v8_lvt w={S3*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+X4 net7 net19 net3 0 sky130_fd_pr__nfet_01v8_lvt w={S4*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+X5 net19 net19 net7 0 sky130_fd_pr__nfet_01v8_lvt w={S5*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+X6 netbc net13 net7 0 sky130_fd_pr__nfet_01v8_lvt w={S6*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+X7 net13 net13 netbc 0 sky130_fd_pr__nfet_01v8_lvt w={S7*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+X8 net2 net2 vdd vdd sky130_fd_pr__pfet_01v8_lvt w={S8*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+X9 net03 net2 vdd vdd sky130_fd_pr__pfet_01v8_lvt w={S9*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+X10 net19 net2 vdd vdd sky130_fd_pr__pfet_01v8_lvt w={S10*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+X11 net13 net2 vdd vdd sky130_fd_pr__pfet_01v8_lvt w={S11*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+X12 net9 net2 vdd vdd sky130_fd_pr__pfet_01v8_lvt w={S12*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+
+Xa neta net2 vdd vdd sky130_fd_pr__pfet_01v8_lvt w={S13*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+Xb neta neta netef 0 sky130_fd_pr__nfet_01v8_lvt w={S14*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+Xc netef neta netbc 0 sky130_fd_pr__nfet_01v8_lvt w={S15*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+
+Xd netd net2 vdd vdd sky130_fd_pr__pfet_01v8_lvt w={S16*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+Xe netd netd net9 0 sky130_fd_pr__nfet_01v8_lvt w={S17*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+Xf net9 netd netef 0 sky130_fd_pr__nfet_01v8_lvt w={S18*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+
+XQ0 0 0 net03 0 sky130_fd_pr__pnp_05v5_W3p40L3p40 M=1
+
+*** Load Capacitance
+C0 net9 0 1p
+
+*** Stimulus
+V1 vdd 0 dc={VDD} AC=1
+
+*** Simulations
+.control
+*Temp Sweep
+*dc temp -40 125 5
+*plot V(net9)
+
+* VDD Sweep
+dc V1 0 3 0.1
+plot V(net9) vs V(vdd)
+
+* Temp & VDD Sweep
+*dc temp -40 125 5 V1 1.2 2.2 0.1
+*plot V(net9)
+
+* AC PSRR
+*AC dec 10 1 1MEG
+*plot vdb(net9) xlog
+*.probe V(net9) V(net03)
+
+* TC Simulation
+*dc temp -40 125 5
+*plot deriv(v(net9))/1.8
+
+* VC Simulation
+*dc V1 1.3 2.2 0.1
+*plot deriv(v(net9))
+
+* Gain & Phase Margin
+*ac dec 10 1 10e9
+*Magnitude dB plot for v(6) on log scale
+*plot vdb(net9) xlog
+*Phase degrees plot for v(6) on log scale
+*plot {57.29*vp(net9)} xlog
+
+* Sensitivity Analysis
+*SENS V(net9)
+
+* Transfer Function
+*TF V(net9,0) V1 
+*print transfer_function
+*dc temp -40 125 5 V1 1.2 2.2 0.1
+*plot V(net9)
+*plot deriv(v(net9))
+.endc
