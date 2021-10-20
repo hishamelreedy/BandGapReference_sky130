@@ -1,0 +1,9 @@
+$$V_{PTAT} = \phi_t ln((S_{12}+5)\dfrac{S_{3}}{S_{2}}+1)\\+\phi_tln[((S_{12}+4)\dfrac{S_5}{S_4}+1)((S_{12}+3)\dfrac{S_7}{S_6}+1)\\((S_{12}+2)\dfrac{S_b}{S_c}+1)((S_{12}+1)\dfrac{S_e}{S_f}+1)]$$
+<hr/>
+
+$$V_{G1}=\dfrac{V_E - n\phi_tln[\dfrac{S_1}{S_2}+\dfrac{S_1}{(S_{12}+3)S_3}]}{n+1}$$
+Because M1 is in Weak Inversion which is done by making $$V_{DS1}>4\phi_t$$<br/>
+by making $$S_1=S_2 --> V_{G1}\approx\dfrac{V_E}{n+1}+V_{PTAT}$$
+<hr/>
+
+then we can deduce  $$V_{REF}=\dfrac{V_E}{n+1}+V_{PTAT}$$
