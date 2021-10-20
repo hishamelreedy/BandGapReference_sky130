@@ -9,7 +9,7 @@
 8. [Mismatch_simulations](#Mismatch_Simulations)
 
 # Schematic
-![Schematic](../Docs/images/schematic_final.png)
+![Schematic](../Docs/images/schematic_fin.png)
 
 # Design Equations
 ![Design Equations](../Docs/images/designeqn.jpg)
