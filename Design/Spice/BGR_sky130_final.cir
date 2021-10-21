@@ -1,12 +1,12 @@
 BGR
 
 * Include external file that contains MOSFET Model
-.lib ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130.lib.spice" fs
+.lib ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130.lib.spice" ss
 .include ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130_fd_pr__model__pnp.model.spice"
 *.include "ee214b_ltspice.sp"
 ** Circuit Description **
 .param VDD = 1.8
-.param L = 1
+.param L = 1.5
 .options temp = 27
 *** 1st Branch: Controls amount of current in Bjt
 .param S9 = 15
@@ -71,12 +71,12 @@ V1 vdd 0 dc={VDD} AC=1
 *** Simulations
 .control
 *Temp Sweep
-*dc temp -40 125 5
-*plot V(net9)
+dc temp -40 125 5
+plot V(net9)
 
 * VDD Sweep
-dc V1 0 3 0.1
-plot V(net9) vs V(vdd)
+*dc V1 0 3 0.1
+*plot V(net9) vs V(vdd)
 
 * Temp & VDD Sweep
 *dc temp -40 125 5 V1 1.2 2.2 0.1
