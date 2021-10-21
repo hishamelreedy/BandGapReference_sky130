@@ -452,26 +452,26 @@ C {devices/code.sym} 960 -830 0 0 {name=Params only_toplevel=false value="
 
 *** 2nd Branch:Controls Initial Offset
 .param S8 = 1
-.param S3 = 64
-.param S2 = 64
-.param S1 = 64
+.param S3 = 30
+.param S2 = 30
+.param S1 = 30
 
 *** 3rd, 4th, 5th Branches: Fine Tuning slope for PTAT slope
 .param S10 = 1
-.param S5 = 4
+.param S5 = 5
 .param S4 = 1
 
 .param S11 = 1
-.param S7 = 4
+.param S7 = 3
 .param S6 = 1
 
 
 .param S13 = 1
-.param S14 = 4
+.param S14 = 5
 .param S15 = 1
 
 .param S16 = 1
-.param S17 = 4
+.param S17 = 3
 .param S18 = 1
 
 *** Branch 6: Coarse Tuning for PTAT Slope
