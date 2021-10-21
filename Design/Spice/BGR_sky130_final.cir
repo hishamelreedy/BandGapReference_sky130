@@ -7,7 +7,7 @@ BGR
 ** Circuit Description **
 .param VDD = 1.8
 .param L = 1
-.options temp = 100
+.options temp = 27
 *** 1st Branch: Controls amount of current in Bjt
 .param S9 = 15
 
@@ -71,20 +71,20 @@ V1 vdd 0 dc={VDD} AC=1
 *** Simulations
 .control
 *Temp Sweep
-*dc temp -40 125 5
-*plot V(net9)
+dc temp -40 125 5
+plot V(net9)
 
 * VDD Sweep
 *dc V1 0 3 0.1
 *plot V(net9) vs V(vdd)
 
 * Temp & VDD Sweep
-dc temp -40 125 5 V1 1.2 2.2 0.1
-plot V(net9)
+*dc temp -40 125 5 V1 1.2 2.2 0.1
+*plot V(net9)
 
 * AC PSRR
-AC dec 10 1 1MEG
-plot vdb(net9) xlog
+*AC dec 10 1 1MEG
+*plot vdb(net9) xlog
 *.probe V(net9) V(net03)
 
 * TC Simulation

@@ -26,7 +26,6 @@ Design of BandGapReference Circuit using Sky130 PDK
 5. [SS_Simulations](#SS_Simulations)
 6. [SF_Simulations](#SF_Simulations)
 7. [FS_Simulations](#FS_Simulations)
-8. [Mismatch_simulations](#Mismatch_Simulations)
 
 # Schematic
 ![Schematic](Docs/images/schematic_fin.png)
