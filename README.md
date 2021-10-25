@@ -87,3 +87,10 @@ Design of BandGapReference Circuit using Sky130 PDK
 
 # CTAT
 <img src="Docs/images/ctat.png" alt="pdn3"/>
+
+# Post-Layout-Simulation
+# TT_Simulation
+## Temperature Simulation
+![Band Gap Reference Block Diagram](Docs/images/BGR_tempSweep_PostLayout.png)
+## Supply variation Simulation
+![Band Gap Reference Block Diagram](Docs/images/BGR_DCSweep_PostLayout.png)
