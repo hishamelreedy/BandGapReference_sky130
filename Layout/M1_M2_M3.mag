@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1634658069
+timestamp 1635158509
 << metal1 >>
 rect -2156 5126 -2012 5138
 rect -2156 5034 -2142 5126
@@ -278,13 +278,9 @@ timestamp 1634436918
 transform 1 0 -557 0 1 2830
 box -425 -1010 425 1010
 << labels >>
-flabel space -3490 810 2328 1024 0 FreeSans 1600 0 0 0 M1D
-flabel metal2 -2942 4152 -1760 4278 0 FreeSans 800 0 0 0 GND
-flabel metal2 -10 810 1232 1024 0 FreeSans 1600 0 0 0 M1D
+flabel metal1 -2288 1374 660 1600 0 FreeSans 1600 0 0 0 M2G
+flabel metal2 -2422 3812 864 3946 0 FreeSans 1600 0 0 0 GND
 flabel metal2 -1486 810 -208 1024 0 FreeSans 1600 0 0 0 M1D
-flabel metal2 -2784 810 -1650 1024 0 FreeSans 1600 0 0 0 M1D
-flabel metal2 -3490 810 -3202 1024 0 FreeSans 1600 0 0 0 M1D
-flabel space 1596 810 2328 1024 0 FreeSans 1600 0 0 0 M1D
-flabel space -3410 4606 2408 4820 0 FreeSans 1600 0 0 0 M3D
-flabel space -3406 5010 2412 5224 0 FreeSans 1600 0 0 0 M2D
+flabel metal2 -766 5010 -362 5224 0 FreeSans 1600 0 0 0 M2D
+flabel metal2 -1078 4624 -618 4838 0 FreeSans 1600 0 0 0 M3D
 << end >>

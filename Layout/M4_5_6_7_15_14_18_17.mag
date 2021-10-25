@@ -1,6 +1,6 @@
 magic
 tech sky130A
-timestamp 1634658360
+timestamp 1635160123
 << metal1 >>
 rect -697 773 -640 781
 rect -395 779 -280 816
@@ -234,7 +234,7 @@ rect 259 165 397 227
 rect 259 68 279 165
 rect 367 68 397 165
 rect 259 -107 397 68
-rect -204 -409 -70 -107
+rect -204 -289 -70 -107
 rect 436 -134 553 389
 rect 927 301 1046 529
 rect 927 218 950 301
@@ -267,7 +267,7 @@ rect 1690 65 1759 151
 rect 1595 -107 1759 65
 rect 1842 152 2009 154
 rect 1842 -94 1999 152
-rect -215 -1345 -64 -409
+rect -212 -1204 -62 -289
 rect 437 -851 550 -134
 rect 1095 -661 1211 -134
 rect 1839 -151 1999 -94
@@ -285,7 +285,10 @@ rect 1095 -815 1211 -756
 rect 437 -975 461 -851
 rect 544 -975 550 -851
 rect 437 -990 550 -975
-rect -641 -1494 -61 -1345
+rect -215 -1339 -62 -1204
+rect -302 -1345 -62 -1339
+rect -641 -1494 -62 -1345
+rect -302 -1498 -62 -1494
 use sky130_fd_pr__nfet_01v8_lvt_M15_14  M15_14
 timestamp 1634425567
 transform 1 0 751 0 1 416
@@ -304,21 +307,14 @@ transform 1 0 -582 0 1 420
 box -148 -465 148 465
 << labels >>
 flabel metal2 2076 -205 2248 1173 0 FreeSans 400 0 0 0 DM18
-flabel space -1344 -1494 -61 -1345 0 FreeSans 400 0 0 0 SM4
-flabel metal1 1315 -323 2100 -196 0 FreeSans 400 0 0 0 DM18
 flabel metal1 648 -552 1860 -380 0 FreeSans 400 0 0 0 DM15
 flabel metal1 196 -780 1101 -640 0 FreeSans 400 0 0 0 DM6
-flabel metal1 -15 -769 30 790 0 FreeSans 400 0 0 0 DM6
-flabel metal1 648 -555 683 797 0 FreeSans 400 0 0 0 DM15
 flabel metal1 1286 -321 1329 805 0 FreeSans 400 0 0 0 DM18
 flabel metal2 1595 312 1759 535 0 FreeSans 400 0 0 0 DM17
 flabel metal2 -316 -107 -264 1429 0 FreeSans 400 0 0 0 DM5
-flabel metal2 -402 622 -264 700 0 FreeSans 400 0 0 0 DM5
 flabel metal2 251 829 399 1414 0 FreeSans 400 0 0 0 DM7
-flabel via1 287 543 375 640 0 FreeSans 400 0 0 0 DM7
 flabel metal1 -630 -996 461 -833 0 FreeSans 400 0 0 0 SM6
-flabel metal1 -697 -293 -652 781 0 FreeSans 400 0 0 0 SM6
-flabel metal1 -697 -293 -690 -291 0 FreeSans 400 0 0 0 SM6
 flabel metal2 1099 -134 1218 374 0 FreeSans 400 0 0 0 SM15
 flabel metal2 927 612 1046 700 0 FreeSans 400 0 0 0 DM14
+flabel metal2 -302 -1498 -62 -1339 0 FreeSans 800 0 0 0 SM4
 << end >>

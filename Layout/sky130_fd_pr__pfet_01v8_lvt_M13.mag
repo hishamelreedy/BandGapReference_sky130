@@ -1,74 +1,46 @@
 magic
 tech sky130A
-magscale 1 2
-timestamp 1634505583
+timestamp 1634058968
 << nwell >>
-rect -194 -200 194 200
+rect -97 -81 97 81
 << pmoslvt >>
-rect -100 -100 100 100
+rect -50 -50 50 50
 << pdiff >>
-rect -158 88 -100 100
-rect -158 -88 -146 88
-rect -112 -88 -100 88
-rect -158 -100 -100 -88
-rect 100 88 158 100
-rect 100 -88 112 88
-rect 146 -88 158 88
-rect 100 -100 158 -88
+rect -79 44 -50 50
+rect -79 -44 -73 44
+rect -56 -44 -50 44
+rect -79 -50 -50 -44
+rect 50 44 79 50
+rect 50 -44 56 44
+rect 73 -44 79 44
+rect 50 -50 79 -44
 << pdiffc >>
-rect -146 -88 -112 88
-rect 112 -88 146 88
+rect -73 -44 -56 44
+rect 56 -44 73 44
 << poly >>
-rect -58 181 58 197
-rect -58 164 -42 181
-rect -100 147 -42 164
-rect 42 164 58 181
-rect 42 147 100 164
-rect -100 100 100 147
-rect -100 -147 100 -100
-rect -100 -164 -42 -147
-rect -58 -181 -42 -164
-rect 42 -164 100 -147
-rect 42 -181 58 -164
-rect -58 -197 58 -181
-<< polycont >>
-rect -42 147 42 181
-rect -42 -181 42 -147
+rect -50 50 50 63
+rect -50 -63 50 -50
 << locali >>
-rect -58 147 -42 181
-rect 42 147 58 181
-rect -146 88 -112 104
-rect -146 -104 -112 -88
-rect 112 88 146 104
-rect 112 -104 146 -88
-rect -58 -181 -42 -147
-rect 42 -181 58 -147
+rect -73 44 -56 52
+rect -73 -52 -56 -44
+rect 56 44 73 52
+rect 56 -52 73 -44
 << viali >>
-rect -42 147 42 181
-rect -146 -88 -112 88
-rect 112 -88 146 88
-rect -42 -181 42 -147
+rect -73 -44 -56 44
+rect 56 -44 73 44
 << metal1 >>
-rect -54 181 54 187
-rect -54 147 -42 181
-rect 42 147 54 181
-rect -54 141 54 147
-rect -152 88 -106 100
-rect -152 -88 -146 88
-rect -112 -88 -106 88
-rect -152 -100 -106 -88
-rect 106 88 152 100
-rect 106 -88 112 88
-rect 146 -88 152 88
-rect 106 -100 152 -88
-rect -54 -147 54 -141
-rect -54 -181 -42 -147
-rect 42 -181 54 -147
-rect -54 -187 54 -181
+rect -76 44 -53 50
+rect -76 -44 -73 44
+rect -56 -44 -53 44
+rect -76 -50 -53 -44
+rect 53 44 76 50
+rect 53 -44 56 44
+rect 73 -44 76 44
+rect 53 -50 76 -44
 << labels >>
-flabel pmoslvt -100 -100 100 100 0 FreeSans 800 0 0 0 M13
+flabel nwell -97 -81 97 81 0 FreeSans 400 0 0 0 M13
 << properties >>
 string gencell sky130_fd_pr__pfet_01v8_lvt
-string parameters w 1 l 1 m 1 nf 1 diffcov 100 polycov 50 guard 0 glc 0 grc 0 gtc 0 gbc 0 tbcov 100 rlcov 100 topc 1 botc 1 poverlap 1 doverlap 1 lmin 0.35 wmin 0.42 compatible {sky130_fd_pr__pfet_01v8  sky130_fd_pr__pfet_01v8_lvt sky130_fd_pr__pfet_01v8_hvt  sky130_fd_pr__pfet_g5v0d10v5} full_metal 0 viasrc 100 viadrn 100 viagate 50 viagb 0 viagr 0 viagl 0 viagt 0
+string parameters w 1 l 1 m 1 nf 1 diffcov 100 polycov 100 guard 0 glc 0 grc 0 gtc 0 gbc 0 tbcov 100 rlcov 100 topc 0 botc 0 poverlap 0 doverlap 0 lmin 0.35 wmin 0.42 compatible {sky130_fd_pr__pfet_01v8  sky130_fd_pr__pfet_01v8_lvt sky130_fd_pr__pfet_01v8_hvt  sky130_fd_pr__pfet_g5v0d10v5} full_metal 0 viasrc 100 viadrn 100 viagate 100 viagb 0 viagr 0 viagl 0 viagt 0
 string library sky130
 << end >>

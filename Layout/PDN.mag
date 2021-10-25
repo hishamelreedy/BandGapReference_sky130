@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1634813859
+timestamp 1635162354
 << locali >>
 rect -11344 -1040 -11134 -862
 rect -11344 -1336 -10666 -1258
@@ -11,13 +11,12 @@ rect -11344 -1404 -10666 -1388
 << viali >>
 rect -11066 -1388 -10964 -1336
 << metal1 >>
-rect -10952 6448 -9658 6470
-rect -10952 6138 -8638 6448
-rect -10952 6120 -9658 6138
-rect -11016 -898 -10418 -896
-rect -11016 -958 -10264 -898
-rect -10020 -958 -8792 -898
-rect -11016 -960 -10418 -958
+rect -9658 6138 -8638 6448
+rect -10474 -896 -9540 -888
+rect -11016 -898 -9540 -896
+rect -11016 -958 -8792 -898
+rect -11016 -960 -9540 -958
+rect -10474 -966 -9540 -960
 rect -11078 -1336 -10956 -1324
 rect -11078 -1388 -11066 -1336
 rect -10964 -1388 -10956 -1336
@@ -51,27 +50,26 @@ rect -11370 -3036 -10614 -3012
 rect -11370 -3098 -11052 -3036
 rect -10958 -3098 -10614 -3036
 rect -11370 -3742 -10614 -3098
-use M1_M2_M3  M1_M2_M3_1
-timestamp 1634658069
-transform 0 1 -10226 -1 0 5392
-box -3490 810 2412 5224
-use M1_M2_M3  M1_M2_M3_0
-timestamp 1634658069
-transform 0 1 -10224 -1 0 -496
-box -3490 810 2412 5224
-use sky130_fd_pr__pnp_05v5_W3p40L3p40  sky130_fd_pr__pnp_05v5_W3p40L3p40_0
+use sky130_pnp_05v5_W3p40L3p40  sky130_pnp_05v5_W3p40L3p40_0
 timestamp 1634257435
 transform 1 0 -11386 0 1 -1338
 box 26 26 770 795
+use M1_M2_M3  M1_M2_M3_0
+timestamp 1635158509
+transform 0 1 -10224 -1 0 -496
+box -3490 810 1910 5224
+use M1_M2_M3  M1_M2_M3_1
+timestamp 1635158509
+transform 0 1 -10226 -1 0 5392
+box -3490 810 1910 5224
 use M4_5_6_7_15_14_18_17  M4_5_6_7_15_14_18_17_0
-timestamp 1634658360
+timestamp 1635160123
 transform 1 0 -3450 0 1 54
-box -2688 -2988 4496 3064
+box -1460 -2996 4496 3064
 << labels >>
 flabel metal2 -2950 2872 -2656 4526 0 FreeSans 1600 0 0 0 DM7
 flabel metal2 -4304 2926 -3932 4496 0 FreeSans 1600 0 0 0 DM5
 flabel metal2 -1604 2688 -1348 4324 0 FreeSans 1600 0 0 0 DM14
 flabel metal2 -256 2712 32 4244 0 FreeSans 1600 0 0 0 DM17
 flabel metal2 662 2944 1036 4164 0 FreeSans 1600 0 0 0 DM18
-flabel space -11080 -1950 -10954 -1418 0 FreeSans 1600 0 0 0 GND
 << end >>
