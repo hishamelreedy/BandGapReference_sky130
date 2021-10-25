@@ -94,3 +94,31 @@ Design of BandGapReference Circuit using Sky130 PDK
 ![Band Gap Reference Block Diagram](Docs/images/BGR_tempSweep_PostLayout.png)
 ## Supply variation Simulation
 ![Band Gap Reference Block Diagram](Docs/images/BGR_DCSweep_PostLayout.png)
+
+# SS_Simulations
+## Temperature Simulation
+![Band Gap Reference Block Diagram](Docs/images/temp_sweep_ss_post.png)
+
+## Supply Variation Simulation
+![Band Gap Reference Block Diagram](Docs/images/dc_sweep_ss_post.png)
+
+# FF_Simulations
+## Temperature Simulation
+![Band Gap Reference Block Diagram](Docs/images/temp_sweep_ff_post.png)
+
+## Supply Variation Simulation
+![Band Gap Reference Block Diagram](Docs/images/dc_sweep_ff_post.png)
+
+# SF_Simulations
+## Temperature Simulation
+![Band Gap Reference Block Diagram](Docs/images/temp_sweep_sf_post.png)
+
+## Supply Variation Simulation
+![Band Gap Reference Block Diagram](Docs/images/dc_sweep_sf_post.png)
+
+# FS_Simulations
+## Temperature Simulation
+![Band Gap Reference Block Diagram](Docs/images/temp_sweep_fs_post.png)
+
+## Supply Variation Simulation
+![Band Gap Reference Block Diagram](Docs/images/dc_sweep_fs_post.png)
