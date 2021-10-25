@@ -2,37 +2,30 @@
 Design of BandGapReference Circuit using Sky130 PDK
 
 # Table of Contents
-1. [Block Diagram](#BlockDiagram)
-2. [Design Specifications](#DesignSpecifications)
-3. [Figure of Merit](#FigureofMerit)
-4. [pre-layout Simulation](#pre-layout-simulation)
-5. [layout Design](#layout-design)
-# Block Diagram
+1. [Block Diagram](#Block-Diagram)
+2. [Design Specifications](#Design-Specifications)
+3. [Figure of Merit](#Figure-of-Merit)
+4. [Schematic](#Schematic)
+5. [Design Equations](#Design-Equations)
+6. [pre-layout Simulation](#pre-layout-simulation)
+7. [layout Design](#layout-design)
+8. [post-layout Simulation](#post-layout-simulation)
+# Block-Diagram
 ![Band Gap Reference Block Diagram](Docs/images/BGR_BD.png)*Band Gap Reference block diagram*
 
-# Design Specifications
+# Design-Specifications
 ![Band Gap Reference Design Specifications](Docs/images/BGR_DS.png)*Band Gap Reference Design Specifications*
 
-# Figure of Merit
+# Figure-of-Merit
 ![Band Gap Reference Figure of Merit](Docs/images/BGR_FOM.png)
 *Band Gap Reference Figure of Merit*
-
-# pre-layout-simulation
-# Table of Contents
-1. [Schematic](#Schematic)
-2. [Design Equations](#DesignEquations)
-3. [TT_Simulations](#TT_Simulations)
-4. [FF_Simulations](#FF_Simulations)
-5. [SS_Simulations](#SS_Simulations)
-6. [SF_Simulations](#SF_Simulations)
-7. [FS_Simulations](#FS_Simulations)
-
 # Schematic
 ![Schematic](Docs/images/schematic_fin.png)
 
-# Design Equations
+# Design-Equations
 ![Design Equations](Docs/images/designeqn.jpg)
 
+# pre-layout-simulation
 # TT_Simulations
 ## Temperature Simulation
 ![Band Gap Reference Block Diagram](Docs/images/Temp_simulation.png)
