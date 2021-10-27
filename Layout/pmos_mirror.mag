@@ -621,7 +621,7 @@ timestamp 1634549143
 transform 1 0 957 0 1 1326
 box -194 -200 194 200
 << labels >>
-flabel metal2 -2396 1710 1483 1852 0 FreeSans 1600 0 0 0 VDD
+flabel metal2 -2396 1710 1483 1852 0 FreeSans 1600 0 0 0 VDDL
 flabel metal2 586 -1948 684 -1356 0 FreeSans 800 0 0 0 M16D
 flabel metal2 -136 -1996 -90 -1388 0 FreeSans 800 0 0 0 M13D
 flabel metal2 -368 -2020 -322 -1412 0 FreeSans 800 0 0 0 M8D

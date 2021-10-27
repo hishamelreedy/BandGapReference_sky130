@@ -48,12 +48,19 @@ C21 VDD GND 110.70f
 * Include external file that contains MOSFET Model
 .lib ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130.lib.spice" tt
 .include ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130_fd_pr__model__pnp.model.spice"
-CLoad VBGP GND 1p
+CLoad VBGP VDD 1p
+
+.model MyIdealDiode D(Ron=1 Roff=1Meg Vfwd=1 Vrev=2)
+D1 VBGP VDD myIdealDiode
+
 V1 VDD GND 1.8V
 
 * Control
 .control
 dc V1 0 3.3 0.1
+plot V(VBGP)
+
+dc temp -40 125 1
 plot V(VBGP)
 .endc
 

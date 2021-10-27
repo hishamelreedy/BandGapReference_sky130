@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1635168309
+timestamp 1635312588
 << nwell >>
 rect 1790 4006 2036 4040
 rect 1790 4002 2048 4006
@@ -297,14 +297,14 @@ rect 530 -1388 3884 -1316
 rect 530 -1474 592 -1388
 rect 660 -1474 3884 -1388
 rect 530 -1538 3884 -1474
-use pmos_mirror  pmos_mirror_0
-timestamp 1635161249
-transform 1 0 4180 0 1 2174
-box -4180 -2174 3034 2473
 use PDN  PDN_0
 timestamp 1635162354
 transform 1 0 6158 0 1 -4980
 box -11370 -3742 1046 8882
+use pmos_mirror  pmos_mirror_0
+timestamp 1635161249
+transform 1 0 4180 0 1 2174
+box -4180 -2174 3034 2473
 << labels >>
 flabel metal2 6836 -1548 8550 -1214 0 FreeSans 1600 0 0 0 VBGP
 flabel metal2 -4058 -4354 -3720 1254 0 FreeSans 1600 0 0 0 M2G
@@ -313,12 +313,12 @@ flabel metal2 1852 -2054 2226 -598 0 FreeSans 1600 0 0 0 M5D
 flabel metal2 3208 -2108 3502 -454 0 FreeSans 1600 0 0 0 M7D
 flabel metal2 4554 -2292 4810 -656 0 FreeSans 1600 0 0 0 M14D
 flabel metal2 5902 -844 6198 412 0 FreeSans 1600 0 0 0 M17D
-flabel space 6820 -2034 7194 -814 0 FreeSans 1600 0 0 0 M18D
+flabel metal2 6820 -2034 7194 -814 0 FreeSans 1600 0 0 0 M18D
 flabel metal2 940 -2162 1136 -572 0 FreeSans 1600 0 0 0 M2D
 flabel metal1 4004 -6030 6428 -5686 0 FreeSans 1600 0 0 0 M15D
 flabel metal1 1448 -6918 3630 -6592 0 FreeSans 1600 0 0 0 M6S
 flabel metal2 3812 154 3858 762 0 FreeSans 1120 0 0 0 M8D
-flabel metal2 -5144 4972 8554 5464 0 FreeSans 1600 0 0 0 VDD!
 flabel metal2 -5268 -8788 8428 -8134 0 FreeSans 1600 0 0 0 GND!
 flabel metal2 4906 -4004 5144 -3062 0 FreeSans 1600 0 0 0 M6D
+flabel metal2 -5144 4972 8554 5464 0 FreeSans 1600 0 0 0 VDD!
 << end >>
