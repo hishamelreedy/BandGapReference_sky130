@@ -1,0 +1,59 @@
+* SPICE3 file created from BGR.ext - technology: sky130A
+
+X0 M2G M8D VDD VDD sky130_fd_pr__pfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=1e+06u l=1e+06u M=15
+X1 VDD VDD VDD VDD sky130_fd_pr__pfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=1e+06u l=1e+06u M=14
+X2 M17D M8D VDD VDD sky130_fd_pr__pfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=1e+06u l=1e+06u
+X3 VBGP M8D VDD VDD sky130_fd_pr__pfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=1e+06u l=1e+06u
+X4 M5D M8D VDD VDD sky130_fd_pr__pfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=1e+06u l=1e+06u
+X5 M8D M8D VDD VDD sky130_fd_pr__pfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=1e+06u l=1e+06u
+X6 M14D M8D VDD VDD sky130_fd_pr__pfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=1e+06u l=1e+06u
+X7 M7D M8D VDD VDD sky130_fd_pr__pfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=1e+06u l=1e+06u
+X8 M8D M2G M2D GND sky130_fd_pr__nfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=8e+06u l=1e+06u M=8
+X9 M1D M1D GND GND sky130_fd_pr__nfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=8e+06u l=1e+06u M=8
+X10 M2D M2G M1D GND sky130_fd_pr__nfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=8e+06u l=1e+06u M=8
+X11 M14D M14D M15D GND sky130_fd_pr__nfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=1e+06u l=1e+06u M=4
+X12 M15D M14D M6D GND sky130_fd_pr__nfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=1e+06u l=1e+06u
+X13 M7D M7D M6D GND sky130_fd_pr__nfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=1e+06u l=1e+06u M=4
+X14 M6D M7D M6S GND sky130_fd_pr__nfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=1e+06u l=1e+06u
+X15 M5D M5D M6S GND sky130_fd_pr__nfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=1e+06u l=1e+06u M=4
+X16 M6S M5D M2D GND sky130_fd_pr__nfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=1e+06u l=1e+06u
+X17 M17D M17D VBGP GND sky130_fd_pr__nfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=1e+06u l=1e+06u M=4
+X18 VBGP M17D M15D GND sky130_fd_pr__nfet_01v8_lvt ad=0p pd=0u as=0p ps=0u w=1e+06u l=1e+06u
+X19 GND GND M2G GND sky130_fd_pr__pnp_05v5_W3p40L3p40
+C0 M6S M7D 2.62f
+C1 VDD M8D 4.26f
+C2 M8D M2D 11.50f
+C3 M1D M2D 6.70f
+C4 M15D VBGP 2.21f
+C5 VDD M2G 4.77f
+C6 M8D M2G 3.97f
+C7 M1D M2G 3.90f
+C8 M2D M5D 2.13f
+C9 M17D GND 6.56f
+C10 VBGP GND 4.81f
+C11 M6S GND 5.04f
+C12 M5D GND 7.38f
+C13 M6D GND 4.08f
+C14 M7D GND 6.67f
+C15 M15D GND 4.60f
+C16 M14D GND 6.27f
+C17 M1D GND 34.92f
+C18 M2D GND 18.92f
+C19 M2G GND 23.29f
+C20 M8D GND 20.33f
+C21 VDD GND 110.70f
+
+
+* Simulation
+* Include external file that contains MOSFET Model
+.lib ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130.lib.spice" tt
+.include ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130_fd_pr__model__pnp.model.spice"
+CLoad VBGP GND 1p
+V1 VDD GND 1.8V
+
+* Control
+.control
+dc V1 0 3.3 0.1
+plot V(VBGP)
+.endc
+

@@ -1,0 +1,5 @@
+
+Checking parameters for BSIM 4.5 model x1:sky130_fd_pr__pfet_01v8_lvt__model.29
+Fatal: u0 at current temperature = -0.013477 is not positive.
+Fatal: Delta = -0.174615 is less than zero.
+Warning: Nfactor = -32.4857 is negative.
