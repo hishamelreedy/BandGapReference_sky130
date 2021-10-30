@@ -11,7 +11,7 @@ font = {'family' : 'sans-serif',
 'size' : 18}
 rc('font', **font)
 temp=27
-runs=100
+runs=1000
 allvbgs = np.zeros((runs,1))
 # print(allvbgs)
 for i in range(1,runs+1,1):
@@ -28,8 +28,7 @@ mean = np.mean(allvbgs)
 print("mean=",mean)
 stdev = np.std(allvbgs)
 print(stdev)
-#print(len(allvbgs))
-with open('your_file.txt', 'w') as f:
+with open('results.txt', 'w') as f:
     for item in allvbgs:
         f.write("%s\n" % item)
 hist = np.histogram(allvbgs)

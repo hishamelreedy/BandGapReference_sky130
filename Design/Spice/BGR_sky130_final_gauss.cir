@@ -1,8 +1,8 @@
 BGR
 
 * Include external file that contains MOSFET Model
-.lib ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130.lib.spice" tt
-.include ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130_fd_pr__model__pnp.model.spice"
+.lib ".\pdk\libs.tech\ngspice\sky130.lib.spice" tt
+.include "..\pdk\libs.tech\ngspice\sky130_fd_pr__model__pnp.model.spice"
 .param MC_MM_SWITCH=1
 ** Circuit Description **
 .param VDD = 1.8
@@ -60,7 +60,7 @@ Xd netd net2 vdd vdd sky130_fd_pr__pfet_01v8_lvt w={S16*L} l={L} nf=1 ad='int((n
 Xe netd netd net9 0 sky130_fd_pr__nfet_01v8_lvt w={S17*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 Xf net9 netd netef 0 sky130_fd_pr__nfet_01v8_lvt w={S18*L} l={L} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 
-XQ0 0 0 net03 0 sky130_fd_pr__pnp_05v5_W3p40L3p40 M=1
+XQ0 0 0 net03 sky130_fd_pr__pnp_05v5_W3p40L3p40 M=1
 
 *** Load Capacitance
 C0 net9 0 1p
@@ -68,36 +68,10 @@ C0 net9 0 1p
 *** Stimulus
 V1 vdd 0 dc={VDD} AC=1
 
-*** Gaussian Parameters
-** variation parameters:
-*.option seed=13
-* .param sky130_fd_pr__nfet_01v8_lvt__vth0_slope_spectre='agauss(0, ABSVAR, 3)/sky130_fd_pr__nfet_01v8_lvt__vth0_slope'
-* .param sky130_fd_pr__pfet_01v8_lvt__vth0_slope_spectre='agauss(0, ABSVAR, 3)/sky130_fd_pr__nfet_01v8_lvt__vth0_slope'
-* .param sky130_fd_pr__pfet_01v8_lvt__toxe_slope_spectre='agauss(0, ABSVAR*2, 3)/sky130_fd_pr__pfet_01v8_lvt__toxe_slope'
-* .param sky130_fd_pr__nfet_01v8_lvt__toxe_slope_spectre='agauss(0, ABSVAR*2, 3)/sky130_fd_pr__nfet_01v8_lvt__toxe_slope'
-* .param sky130_fd_pr__pfet_01v8_lvt__voff_slope_spectre='agauss(0, ABSVAR, 3)/sky130_fd_pr__pfet_01v8_lvt__voff_slope'
-* .param sky130_fd_pr__nfet_01v8_lvt__voff_slope_spectre='agauss(0, ABSVAR, 3)/sky130_fd_pr__nfet_01v8_lvt__voff_slope'
-* .param sky130_fd_pr__pfet_01v8_lvt__nfactor_slope_spectre='agauss(0, ABSVAR, 3)/sky130_fd_pr__pfet_01v8_lvt__nfactor_slope'
-* .param sky130_fd_pr__nfet_01v8_lvt__nfactor_slope_spectre='agauss(0, ABSVAR, 3)/sky130_fd_pr__nfet_01v8_lvt__nfactor_slope'
-
-* .param sky130_fd_pr__res_xhigh_po__var_mult=agauss(0, 'ABSVAR*8', 1)
-* .param sky130_fd_pr__res_high_po_var=agauss(0, 'ABSVAR*8', 1)
-
-* .param sky130_fd_pr__pnp_05v5_W3p40L3p40__bf_slope=agauss(0, 0.05537, 1)
-* .param sky130_fd_pr__pnp_05v5_W3p40L3p40__is_slope=agauss(0, 0.01662, 1)
-* .param sky130_fd_pr__pnp_05v5_W3p40L3p40__xti_slope=agauss(0, 0.06, 1)
-
-* .param sky130_fd_pr__pnp_05v5_W3p40L3p40__bf_slope=agauss(0, ABSVAR, 1)
-* .param sky130_fd_pr__pnp_05v5_W3p40L3p40__is_slope=agauss(0, ABSVAR, 1)
-* .param sky130_fd_pr__pnp_05v5_W3p40L3p40__xti_slope=agauss(0, ABSVAR, 1)
-
-* .param ABSVAR=0.03
-* .param VDDGAUSS=agauss(1.8, 'ABSVAR', 1)
-* .param VDD=VDDGAUSS
 *** Simulations
 .control
 let run=1
-dowhile run <= 100
+dowhile run <= 1000
 if run > 1
   reset
   set appendwrite
@@ -108,10 +82,9 @@ write sky130BGR_tran_gauss{$temp}C{$&run}.raw net9 vdd
 let run = run + 1
 end
 set nolegend
-*set temp=0
 plot all.net9
-*unset askquit
-*quit
+unset askquit
+quit
 
 .endc
 
