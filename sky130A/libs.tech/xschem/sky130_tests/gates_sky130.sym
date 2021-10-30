@@ -1,0 +1,17 @@
+v {xschem version=2.9.8 file_version=1.2}
+K {type=subcircuit
+format="@name @pinlist @symname"
+template="name=x1"
+}
+T {@symname} -40.5 -6 0 0 0.3 0.3 {}
+T {@name} 135 -22 0 0 0.2 0.2 {}
+L 4 -130 -10 130 -10 {}
+L 4 -130 10 130 10 {}
+L 4 -130 -10 -130 10 {}
+L 4 130 -10 130 10 {}
+C {devices/code.sym} -170 0 0 0 {name=TT_MODELS
+only_toplevel=true
+format="tcleval( @value )"
+value="
+.lib \\\\$\:\:SKYWATER_MODELS\\\\/sky130.lib.spice tt
+"}
