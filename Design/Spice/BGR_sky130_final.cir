@@ -1,7 +1,7 @@
 BGR
 
 * Include external file that contains MOSFET Model
-.lib ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130.lib.spice" TT
+.lib ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130.lib.spice" tt
 .include ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130_fd_pr__model__pnp.model.spice"
 *.include "ee214b_ltspice.sp"
 ** Circuit Description **

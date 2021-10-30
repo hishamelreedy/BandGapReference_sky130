@@ -11,7 +11,7 @@ font = {'family' : 'sans-serif',
 'size' : 18}
 rc('font', **font)
 temp=27
-runs=1000
+runs=400
 allvbgs = np.zeros((runs,1))
 # print(allvbgs)
 for i in range(1,runs+1,1):

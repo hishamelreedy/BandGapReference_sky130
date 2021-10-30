@@ -1,7 +1,7 @@
 BGR
 
 * Include external file that contains MOSFET Model
-.lib ".\pdk\libs.tech\ngspice\sky130.lib.spice" tt
+.lib ".\pdk\libs.tech\ngspice\sky130.lib.spice" fs
 .include "..\pdk\libs.tech\ngspice\sky130_fd_pr__model__pnp.model.spice"
 .param MC_MM_SWITCH=1
 ** Circuit Description **
@@ -71,7 +71,7 @@ V1 vdd 0 dc={VDD} AC=1
 *** Simulations
 .control
 let run=1
-dowhile run <= 1000
+dowhile run <= 400
 if run > 1
   reset
   set appendwrite
