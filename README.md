@@ -10,6 +10,7 @@ Design of BandGapReference Circuit using Sky130 PDK
 6. [pre-layout Simulation](#pre-layout-simulation)
 7. [layout Design](#layout-design)
 8. [post-layout Simulation](#post-layout-simulation)
+9. [Mismatch Simulation](#mismatch-simulation)
 # Block-Diagram
 ![Band Gap Reference Block Diagram](Docs/images/BGR_BD.png)*Band Gap Reference block diagram*
 
@@ -115,3 +116,10 @@ Design of BandGapReference Circuit using Sky130 PDK
 
 ## Supply Variation Simulation
 ![Band Gap Reference Block Diagram](Docs/images/dc_sweep_fs_post.png)
+
+# Mismatch-Simulation
+## TT Corner-1000runs (typical corner)
+![Band Gap Reference Block Diagram](Docs/images/hist_27degc_tt.png)
+
+## FS Corner-400runs (worst Corner)
+![Band Gap Reference Block Diagram](Docs/images/hist_27degc_fs.png)
