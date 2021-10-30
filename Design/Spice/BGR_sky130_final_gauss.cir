@@ -1,9 +1,9 @@
 BGR
 
 * Include external file that contains MOSFET Model
-.lib ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130.lib.spice" TT
+.lib ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130.lib.spice" tt
 .include ".\skywater-pdk\libraries\sky130_fd_pr\latest\models\sky130_fd_pr__model__pnp.model.spice"
-*.include "ee214b_ltspice.sp"
+.param MC_MM_SWITCH=1
 ** Circuit Description **
 .param VDD = 1.8
 .param L = 1
@@ -68,47 +68,50 @@ C0 net9 0 1p
 *** Stimulus
 V1 vdd 0 dc={VDD} AC=1
 
+*** Gaussian Parameters
+** variation parameters:
+*.option seed=13
+* .param sky130_fd_pr__nfet_01v8_lvt__vth0_slope_spectre='agauss(0, ABSVAR, 3)/sky130_fd_pr__nfet_01v8_lvt__vth0_slope'
+* .param sky130_fd_pr__pfet_01v8_lvt__vth0_slope_spectre='agauss(0, ABSVAR, 3)/sky130_fd_pr__nfet_01v8_lvt__vth0_slope'
+* .param sky130_fd_pr__pfet_01v8_lvt__toxe_slope_spectre='agauss(0, ABSVAR*2, 3)/sky130_fd_pr__pfet_01v8_lvt__toxe_slope'
+* .param sky130_fd_pr__nfet_01v8_lvt__toxe_slope_spectre='agauss(0, ABSVAR*2, 3)/sky130_fd_pr__nfet_01v8_lvt__toxe_slope'
+* .param sky130_fd_pr__pfet_01v8_lvt__voff_slope_spectre='agauss(0, ABSVAR, 3)/sky130_fd_pr__pfet_01v8_lvt__voff_slope'
+* .param sky130_fd_pr__nfet_01v8_lvt__voff_slope_spectre='agauss(0, ABSVAR, 3)/sky130_fd_pr__nfet_01v8_lvt__voff_slope'
+* .param sky130_fd_pr__pfet_01v8_lvt__nfactor_slope_spectre='agauss(0, ABSVAR, 3)/sky130_fd_pr__pfet_01v8_lvt__nfactor_slope'
+* .param sky130_fd_pr__nfet_01v8_lvt__nfactor_slope_spectre='agauss(0, ABSVAR, 3)/sky130_fd_pr__nfet_01v8_lvt__nfactor_slope'
+
+* .param sky130_fd_pr__res_xhigh_po__var_mult=agauss(0, 'ABSVAR*8', 1)
+* .param sky130_fd_pr__res_high_po_var=agauss(0, 'ABSVAR*8', 1)
+
+* .param sky130_fd_pr__pnp_05v5_W3p40L3p40__bf_slope=agauss(0, 0.05537, 1)
+* .param sky130_fd_pr__pnp_05v5_W3p40L3p40__is_slope=agauss(0, 0.01662, 1)
+* .param sky130_fd_pr__pnp_05v5_W3p40L3p40__xti_slope=agauss(0, 0.06, 1)
+
+* .param sky130_fd_pr__pnp_05v5_W3p40L3p40__bf_slope=agauss(0, ABSVAR, 1)
+* .param sky130_fd_pr__pnp_05v5_W3p40L3p40__is_slope=agauss(0, ABSVAR, 1)
+* .param sky130_fd_pr__pnp_05v5_W3p40L3p40__xti_slope=agauss(0, ABSVAR, 1)
+
+* .param ABSVAR=0.03
+* .param VDDGAUSS=agauss(1.8, 'ABSVAR', 1)
+* .param VDD=VDDGAUSS
 *** Simulations
 .control
-*Temp Sweep
-dc temp -40 125 5
-plot V(net9)
+let run=1
+dowhile run <= 100
+if run > 1
+  reset
+  set appendwrite
+end
+save all
+tran 0.05u 150u
+write sky130BGR_tran_gauss{$temp}C{$&run}.raw net9 vdd
+let run = run + 1
+end
+set nolegend
+*set temp=0
+plot all.net9
+*unset askquit
+*quit
 
-* VDD Sweep
-*dc V1 0 3 0.1
-*plot V(net9) vs V(vdd)
-
-* Temp & VDD Sweep
-*dc temp -40 125 5 V1 1.2 2.2 0.1
-*plot V(net9)
-
-* AC PSRR
-*AC dec 10 1 1MEG
-*plot vdb(net9) xlog
-*.probe V(net9) V(net03)
-
-* TC Simulation
-*dc temp -40 125 5
-*plot deriv(v(net9))/1.8
-
-* VC Simulation
-*dc V1 1.3 2.2 0.1
-*plot deriv(v(net9))
-
-* Gain & Phase Margin
-*ac dec 10 1 10e9
-*Magnitude dB plot for v(6) on log scale
-*plot vdb(net9) xlog
-*Phase degrees plot for v(6) on log scale
-*plot {57.29*vp(net9)} xlog
-
-* Sensitivity Analysis
-*SENS V(net9)
-
-* Transfer Function
-*TF V(net9,0) V1 
-*print transfer_function
-*dc temp -40 125 5 V1 1.2 2.2 0.1
-*plot V(net9)
-*plot deriv(v(net9))
 .endc
+
